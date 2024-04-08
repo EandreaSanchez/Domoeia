@@ -15,6 +15,12 @@ class Locations_method(APIView):
         user=request.data["user_id"]
         Locations.objects.create(name_locations=name_location,user_id=user)
         return Response (status=status.HTTP_200_OK)
+    
+
+
+
+
+
     def put(self, request,codigo):
         location=Locations.objects.get(id=codigo)
         location.name_locations=request.data["name_location"]
@@ -76,7 +82,7 @@ class Dots_method(APIView):
         return Response (status=status.HTTP_200_OK)
     
     def get(self, request,codigo):
-        dots=Dots.objects.filter(device=codigo)
+        dots=Dots.objects.filter(device_id=codigo)
         content={}
         #location_list=[]
         #for i in locations:
